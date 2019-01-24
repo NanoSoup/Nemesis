@@ -4,12 +4,10 @@ namespace NanoSoup\Nemesis\ACF;
 
 /**
  * Class FlexibleContent
- *
- * @package SS_ACF\Components
+ * @package NanoSoup\Nemesis\ACF
  */
 class FlexibleContent extends BaseFields
 {
-
     /**
      * FlexibleContent init.
      *
