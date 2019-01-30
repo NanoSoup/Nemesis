@@ -22,6 +22,7 @@ class PostTypes
             'hierarchical' => false,
             'has_archive' => true,
             'show_in_nav_menus' => true,
+            'show_in_rest' => true
         ];
 
         // Make nice variable names
@@ -51,8 +52,9 @@ class PostTypes
             'has_archive' => $has_archive,
             'rewrite' => ['slug' => $slug],
             'show_in_nav_menus' => $show_in_nav_menus,
+            'show_in_rest' => $show_in_rest,
             'supports' => [
-                'title', 'editor', 'thumbnail', 'author',
+                'title', 'editor', 'thumbnail', 'author'
             ],
         ];
 
@@ -72,7 +74,8 @@ class PostTypes
         $defaults = [
             'public' => true,
             'hierarchical' => false,
-            'show_ui' => true
+            'show_ui' => true,
+            'show_in_rest' => true
         ];
 
         // Make nice variable names
@@ -100,7 +103,8 @@ class PostTypes
             'public' => $public,
             'hierarchical' => $hierarchical,
             'rewrite' => ['slug' => $slug . '/category'],
-            'show_ui' => $show_ui
+            'show_ui' => $show_ui,
+            'show_in_rest' => $show_in_rest
         ];
 
         register_taxonomy('event-category', $object_types, $args);
