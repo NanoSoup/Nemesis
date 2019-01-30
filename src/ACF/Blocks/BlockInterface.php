@@ -9,11 +9,9 @@ namespace NanoSoup\Nemesis\ACF\Blocks;
 interface BlockInterface
 {
     /**
-     * Initialize the block
-     *
-     * @return mixed
+     * BlockInterface constructor.
      */
-    public function init();
+    public function __construct();
 
     /**
      * Register the block with ACF
