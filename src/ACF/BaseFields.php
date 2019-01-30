@@ -24,7 +24,7 @@ class BaseFields
         return [
             'key' => 'field_text_' . $this->generateUniquePrefix($prefix, $label),
             'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
+            'name' => $this->generateName($label),
             'type' => 'text',
             'instructions' => $instructions,
             'required' => $required,
@@ -48,12 +48,145 @@ class BaseFields
         return [
             'key' => 'field_textarea_' . $this->generateUniquePrefix($prefix, $label),
             'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
+            'name' => $this->generateName($label),
             'type' => 'textarea',
             'instructions' => $instructions,
             'required' => $required,
             'conditional_logic' => $conditions,
             'default_value' => $defaultValue
+        ];
+    }
+
+    /**
+     * Basic Number field
+     * @param $prefix
+     * @param string $label
+     * @param string $step
+     * @param string $min
+     * @param string $max
+     * @param int $conditions
+     * @param string $instructions
+     * @param string $defaultValue
+     * @param int $required
+     * @return array
+     */
+    public function number($prefix, $label = 'Number', $step = '', $min = '', $max = '', $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
+    {
+        return [
+            'key' => 'field_number_' . $this->generateUniquePrefix($prefix, $label),
+            'label' => $label,
+            'name' => $this->generateName($label),
+            'type' => 'text',
+            'instructions' => $instructions,
+            'required' => $required,
+            'conditional_logic' => $conditions,
+            'default_value' => $defaultValue,
+            'step' => $step,
+            'min' => $min,
+            'max' => $max,
+        ];
+    }
+
+    /**
+     * Basic Email field
+     * @param $prefix
+     * @param string $label
+     * @param int $conditions
+     * @param string $instructions
+     * @param string $defaultValue
+     * @param int $required
+     * @return array
+     */
+    public function email($prefix, $label = 'Email', $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
+    {
+        return [
+            'key' => 'field_email_' . $this->generateUniquePrefix($prefix, $label),
+            'label' => $label,
+            'name' => $this->generateName($label),
+            'type' => 'text',
+            'instructions' => $instructions,
+            'required' => $required,
+            'conditional_logic' => $conditions,
+            'default_value' => $defaultValue
+        ];
+    }
+
+    /**
+     * Basic URL field
+     * @param $prefix
+     * @param string $label
+     * @param int $conditions
+     * @param string $instructions
+     * @param string $defaultValue
+     * @param int $required
+     * @return array
+     */
+    public function url($prefix, $label = 'URL', $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
+    {
+        return [
+            'key' => 'field_url_' . $this->generateUniquePrefix($prefix, $label),
+            'label' => $label,
+            'name' => $this->generateName($label),
+            'type' => 'url',
+            'instructions' => $instructions,
+            'required' => $required,
+            'conditional_logic' => $conditions,
+            'default_value' => $defaultValue
+        ];
+    }
+
+    /**
+     * Basic Password field
+     * @param $prefix
+     * @param string $label
+     * @param int $conditions
+     * @param string $instructions
+     * @param string $defaultValue
+     * @param int $required
+     * @return array
+     */
+    public function password($prefix, $label = 'Password', $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
+    {
+        return [
+            'key' => 'field_password_' . $this->generateUniquePrefix($prefix, $label),
+            'label' => $label,
+            'name' => $this->generateName($label),
+            'type' => 'text',
+            'instructions' => $instructions,
+            'required' => $required,
+            'conditional_logic' => $conditions,
+            'default_value' => $defaultValue
+        ];
+    }
+
+    /**
+     * Basic Image field
+     * @param $prefix
+     * @param string $label
+     * @param int $conditions
+     * @param string $instructions
+     * @param string $defaultValue
+     * @param int $required
+     * @return array
+     */
+    public function image($prefix, $label = 'Image', $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
+    {
+        return [
+            'key' => 'field_image_' . $this->generateUniquePrefix($prefix, $label),
+            'label' => $label,
+            'name' => $this->generateName($label),
+            'type' => 'image',
+            'instructions' => $instructions,
+            'required' => $required,
+            'conditional_logic' => $conditions,
+            'default_value' => $defaultValue,
+            'return_format' => 'ID',
+            'preview_size' => 'thumbnail',
+            'library' => 'all',
+            'min_width' => 0,
+            'min_height' => 0,
+            'max_width' => 0,
+            'max_height' => 0
         ];
     }
 
@@ -72,7 +205,7 @@ class BaseFields
         return [
             'key' => 'field_main_content_' . $this->generateUniquePrefix($prefix, $label),
             'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
+            'name' => $this->generateName($label),
             'type' => 'wysiwyg',
             'instructions' => $instructions,
             'required' => $required,
@@ -82,6 +215,69 @@ class BaseFields
             'toolbar' => 'full',
             'media_upload' => 1,
             'delay' => 1
+        ];
+    }
+
+    /**
+     * Basic File field
+     * @param $prefix
+     * @param string $label
+     * @param string $mimeTypes
+     * @param int $conditions
+     * @param string $instructions
+     * @param string $defaultValue
+     * @param int $required
+     * @return array
+     */
+    public function file($prefix, $label = 'File', $mimeTypes = '', $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
+    {
+        return [
+            'key' => 'field_file_' . $this->generateUniquePrefix($prefix, $label),
+            'label' => $label,
+            'name' => $this->generateName($label),
+            'type' => 'file',
+            'instructions' => $instructions,
+            'required' => $required,
+            'conditional_logic' => $conditions,
+            'default_value' => $defaultValue,
+            'return_format' => 'ID',
+            'preview_size' => 'thumbnail',
+            'library' => 'all',
+            'min_size' => 0,
+            'max_size' => 0,
+            'mime_types' => $mimeTypes
+        ];
+    }
+
+    /**
+     * Basic Gallery field
+     * @param $prefix
+     * @param string $label
+     * @param string $mimeTypes
+     * @param int $conditions
+     * @param string $instructions
+     * @param string $defaultValue
+     * @param int $required
+     * @return array
+     */
+    public function gallery($prefix, $label = 'Gallery', $mimeTypes = '', $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
+    {
+        return [
+            'key' => 'field_gallery_' . $this->generateUniquePrefix($prefix, $label),
+            'label' => $label,
+            'name' => $this->generateName($label),
+            'type' => 'gallery',
+            'instructions' => $instructions,
+            'required' => $required,
+            'conditional_logic' => $conditions,
+            'default_value' => $defaultValue,
+            'preview_size' => 'thumbnail',
+            'library' => 'all',
+            'min' => 0,
+            'max' => 0,
+            'min_size' => 0,
+            'max_size' => 0,
+            'mime_types' => $mimeTypes,
         ];
     }
 
@@ -102,7 +298,7 @@ class BaseFields
         return [
             'key' => 'field_select_' . $this->generateUniquePrefix($prefix, $label),
             'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
+            'name' => $this->generateName($label),
             'type' => 'select',
             'instructions' => $instructions,
             'required' => $required,
@@ -116,7 +312,7 @@ class BaseFields
     }
 
     /**
-     * Basic Select field
+     * Basic Checkbox field
      * @param $prefix
      * @param string $label
      * @param array $choices
@@ -131,7 +327,7 @@ class BaseFields
         return [
             'key' => 'field_checkbox_' . $this->generateUniquePrefix($prefix, $label),
             'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
+            'name' => $this->generateName($label),
             'type' => 'checkbox',
             'instructions' => $instructions,
             'required' => $required,
@@ -143,7 +339,7 @@ class BaseFields
     }
 
     /**
-     * Basic Select field
+     * Basic Radio field
      * @param $prefix
      * @param string $label
      * @param array $choices
@@ -158,7 +354,7 @@ class BaseFields
         return [
             'key' => 'field_radio_' . $this->generateUniquePrefix($prefix, $label),
             'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
+            'name' => $this->generateName($label),
             'type' => 'checkbox',
             'instructions' => $instructions,
             'required' => $required,
@@ -185,178 +381,46 @@ class BaseFields
         return [
             'key' => 'field_choice_' . $this->generateUniquePrefix($prefix, $label),
             'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
+            'name' => $this->generateName($label),
             'type' => 'true_false',
             'instructions' => $instructions,
             'required' => $required,
             'conditional_logic' => $conditions,
             'default_value' => $defaultValue,
             'message' => $message,
-            'ui' => 1,
+            'ui' => 1
         ];
     }
 
     /**
-     * Basic Number field
+     * Basic Post field
      * @param $prefix
      * @param string $label
-     * @param string $step
-     * @param string $min
-     * @param string $max
+     * @param int $multiple
+     * @param string $return
+     * @param mixed $postType
+     * @param mixed $taxonomy
      * @param int $conditions
      * @param string $instructions
      * @param string $defaultValue
      * @param int $required
      * @return array
      */
-    public function number($prefix, $label = 'Number', $step = '', $min = '', $max = '', $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
+    public function post($prefix, $label = 'Post', $multiple = 0, $postType = '', $taxonomy = '', $return = 'object', $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
     {
         return [
-            'key' => 'field_number_' . $this->generateUniquePrefix($prefix, $label),
+            'key' => 'field_post_' . $this->generateUniquePrefix($prefix, $label),
             'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
-            'type' => 'text',
+            'name' => $this->generateName($label),
+            'type' => 'post_object',
             'instructions' => $instructions,
             'required' => $required,
             'conditional_logic' => $conditions,
             'default_value' => $defaultValue,
-            'step' => $step,
-            'min' => $min,
-            'max' => $max,
-        ];
-    }
-
-    /**
-     * Basic Image field
-     * @param $prefix
-     * @param string $label
-     * @param int $conditions
-     * @param string $instructions
-     * @param string $defaultValue
-     * @param int $required
-     * @return array
-     */
-    public function image($prefix, $label = 'Image', $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
-    {
-        return [
-            'key' => 'field_image_' . $this->generateUniquePrefix($prefix, $label),
-            'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
-            'type' => 'image',
-            'instructions' => $instructions,
-            'required' => $required,
-            'conditional_logic' => $conditions,
-            'default_value' => $defaultValue,
-            'return_format' => 'ID',
-            'preview_size' => 'thumbnail',
-            'library' => 'all',
-            'min_width' => 0,
-            'min_height' => 0,
-            'max_width' => 0,
-            'max_height' => 0
-        ];
-    }
-
-    /**
-     * Basic File field
-     * @param $prefix
-     * @param string $label
-     * @param string $mimeTypes
-     * @param int $conditions
-     * @param string $instructions
-     * @param string $defaultValue
-     * @param int $required
-     * @return array
-     */
-    public function file($prefix, $label = 'File', $mimeTypes = '', $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
-    {
-        return [
-            'key' => 'field_file_' . $this->generateUniquePrefix($prefix, $label),
-            'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
-            'type' => 'file',
-            'instructions' => $instructions,
-            'required' => $required,
-            'conditional_logic' => $conditions,
-            'default_value' => $defaultValue,
-            'return_format' => 'ID',
-            'preview_size' => 'thumbnail',
-            'library' => 'all',
-            'min_size' => 0,
-            'max_size' => 0,
-            'mime_types' => $mimeTypes
-        ];
-    }
-
-    /**
-     * Basic Email field
-     * @param $prefix
-     * @param string $label
-     * @param int $conditions
-     * @param string $instructions
-     * @param string $defaultValue
-     * @param int $required
-     * @return array
-     */
-    public function email($prefix, $label = 'Email', $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
-    {
-        return [
-            'key' => 'field_email_' . $this->generateUniquePrefix($prefix, $label),
-            'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
-            'type' => 'text',
-            'instructions' => $instructions,
-            'required' => $required,
-            'conditional_logic' => $conditions,
-            'default_value' => $defaultValue
-        ];
-    }
-
-    /**
-     * Basic Password field
-     * @param $prefix
-     * @param string $label
-     * @param int $conditions
-     * @param string $instructions
-     * @param string $defaultValue
-     * @param int $required
-     * @return array
-     */
-    public function password($prefix, $label = 'Password', $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
-    {
-        return [
-            'key' => 'field_password_' . $this->generateUniquePrefix($prefix, $label),
-            'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
-            'type' => 'text',
-            'instructions' => $instructions,
-            'required' => $required,
-            'conditional_logic' => $conditions,
-            'default_value' => $defaultValue
-        ];
-    }
-
-    /**
-     * Basic URL field
-     * @param $prefix
-     * @param string $label
-     * @param int $conditions
-     * @param string $instructions
-     * @param string $defaultValue
-     * @param int $required
-     * @return array
-     */
-    public function url($prefix, $label = 'URL', $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
-    {
-        return [
-            'key' => 'field_url_' . $this->generateUniquePrefix($prefix, $label),
-            'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
-            'type' => 'url',
-            'instructions' => $instructions,
-            'required' => $required,
-            'conditional_logic' => $conditions,
-            'default_value' => $defaultValue
+            'multiple' => $multiple,
+            'post_type' => $postType,
+            'taxonomy' => $taxonomy,
+            'return_format' => $return
         ];
     }
 
@@ -378,7 +442,7 @@ class BaseFields
         return [
             'key' => 'field_link_' . $this->generateUniquePrefix($prefix, $label),
             'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
+            'name' => $this->generateName($label),
             'type' => 'page_link',
             'instructions' => $instructions,
             'required' => $required,
@@ -409,7 +473,7 @@ class BaseFields
         return [
             'key' => 'field_relationship_' . $this->generateUniquePrefix($prefix, $label),
             'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
+            'name' => $this->generateName($label),
             'type' => 'relationship',
             'instructions' => $instructions,
             'required' => $required,
@@ -420,38 +484,6 @@ class BaseFields
             'taxonomy' => $taxonomy,
             'return_format' => $return,
             'add_term' => 0
-        ];
-    }
-
-    /**
-     * Basic Post field
-     * @param $prefix
-     * @param string $label
-     * @param int $multiple
-     * @param string $return
-     * @param mixed $postType
-     * @param mixed $taxonomy
-     * @param int $conditions
-     * @param string $instructions
-     * @param string $defaultValue
-     * @param int $required
-     * @return array
-     */
-    public function post($prefix, $label = 'Post', $multiple = 0, $postType = '', $taxonomy = '', $return = 'object', $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
-    {
-        return [
-            'key' => 'field_post_' . $this->generateUniquePrefix($prefix, $label),
-            'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
-            'type' => 'post_object',
-            'instructions' => $instructions,
-            'required' => $required,
-            'conditional_logic' => $conditions,
-            'default_value' => $defaultValue,
-            'multiple' => $multiple,
-            'post_type' => $postType,
-            'taxonomy' => $taxonomy,
-            'return_format' => $return
         ];
     }
 
@@ -474,7 +506,7 @@ class BaseFields
         return [
             'key' => 'field_taxonomy_' . $this->generateUniquePrefix($prefix, $label),
             'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
+            'name' => $this->generateName($label),
             'type' => 'taxonomy',
             'instructions' => $instructions,
             'required' => $required,
@@ -504,7 +536,7 @@ class BaseFields
         return [
             'key' => 'field_map_' . $this->generateUniquePrefix($prefix, $label),
             'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
+            'name' => $this->generateName($label),
             'type' => 'google_map',
             'instructions' => $instructions,
             'required' => $required,
@@ -531,7 +563,7 @@ class BaseFields
         return [
             'key' => 'field_date_' . $this->generateUniquePrefix($prefix, $label),
             'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
+            'name' => $this->generateName($label),
             'type' => 'date_picker',
             'instructions' => $instructions,
             'required' => $required,
@@ -559,7 +591,7 @@ class BaseFields
         return [
             'key' => 'field_time_' . $this->generateUniquePrefix($prefix, $label),
             'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
+            'name' => $this->generateName($label),
             'type' => 'time_picker',
             'instructions' => $instructions,
             'required' => $required,
@@ -587,7 +619,7 @@ class BaseFields
         return [
             'key' => 'field_date_time_' . $this->generateUniquePrefix($prefix, $label),
             'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
+            'name' => $this->generateName($label),
             'type' => 'date_time_picker',
             'instructions' => $instructions,
             'required' => $required,
@@ -595,62 +627,6 @@ class BaseFields
             'default_value' => $defaultValue,
             'display_format' => $displayFormat,
             'return_format' => $returnFormat
-        ];
-    }
-
-    /**
-     * Form ID field
-     * @param $prefix
-     * @param string $label
-     * @param int $conditions
-     * @param string $instructions
-     * @param string $defaultValue
-     * @param int $required
-     * @return array
-     */
-    public function formID($prefix, $label = 'Form ID', $conditions = 0, $instructions = 'Select the form you wish to be displayed on this page', $defaultValue = '', $required = 0)
-    {
-        return [
-            'key' => 'field_formid_' . $this->generateUniquePrefix($prefix, $label),
-            'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
-            'type' => 'select',
-            'instructions' => $instructions,
-            'required' => $required,
-            'conditional_logic' => $conditions,
-            'default_value' => $defaultValue,
-            'choices' => $this::list_gravity_forms()
-        ];
-    }
-
-    /**
-     * Repeater field
-     * @param array $args
-     * @return array
-     */
-    public function repeater($args)
-    {
-        $defaults = [
-            'button_label' => '',
-            'label' => '',
-            'prefix' => 'ss_acf',
-            'min' => '',
-            'max' => '',
-        ];
-
-        $settings = array_merge($defaults, $args['settings']);
-
-        return [
-            'key' => 'field_repeater_' . $this->generateUniquePrefix($settings['prefix'], $settings['label']),
-            'label' => $settings['label'],
-            'name' => strtolower(str_replace(' ', '_', $settings['label'])),
-            'type' => 'repeater',
-            'sub_fields' => $args['elements'],
-            'min' => $settings['min'],
-            'max' => $settings['max'],
-            'layout' => 'block',
-            'collapsed' => 'true',
-            'button_label' => $settings['button_label']
         ];
     }
 
@@ -678,89 +654,18 @@ class BaseFields
     }
 
     /**
-     * Icon Select field
-     * @param $prefix
-     * @param string $label
-     * @param int $multiple
-     * @param int $conditions
-     * @param string $instructions
-     * @param string $defaultValue
-     * @param int $required
-     * @return array
+     * Generate name field from label
+     * @param $label
+     * @return string
      */
-    public function icon($prefix, $label = 'Icon', $multiple = 0, $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
+    public function generateName($label)
     {
-        return [
-            'key' => 'field_icon_' . $this->generateUniquePrefix($prefix, $label),
-            'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
-            'type' => 'select',
-            'instructions' => $instructions,
-            'required' => $required,
-            'conditional_logic' => $conditions,
-            'default_value' => $defaultValue,
-            'choices' => [
-                '' => 'None',
-                'icon-bicycle' => 'Bicycle',
-                'icon-bowl' => 'Bowl',
-                'icon-bus' => 'Bus',
-                'icon-cctv' => 'CCTV',
-                'icon-disabled' => 'Disabled',
-                'icon-elevator' => 'Elevator',
-                'icon-lightning' => 'Lightning',
-                'icon-location' => 'Location',
-                'icon-mail' => 'Mail',
-                'icon-padlock' => 'Padlock',
-                'icon-phone' => 'Phone',
-                'icon-reception' => 'Reception',
-                'icon-rocket' => 'Rocket',
-                'icon-screen' => 'Screen',
-                'icon-shower' => 'Shower',
-                'icon-stairs' => 'Stairs',
-                'icon-temperature' => 'Temperature',
-                'icon-tube' => 'Tube',
-                'icon-walking' => 'Walking',
-            ],
-            'multiple' => $multiple,
-            'ui' => $multiple ? 1 : 0,
-            'ajax' => $multiple ? 1 : 0
-        ];
+        $label = preg_replace('/[^A-Za-z0-9]+/', '_', $label);
+        return strtolower($label);
     }
 
     /**
-     * Anchor Menu Text field
-     * @param $prefix
-     * @param string $label
-     * @param string $instructions
-     * @param string $defaultValue
-     * @param int $required
-     * @return array
-     */
-    public function anchorMenuText($prefix, $label = 'Anchor Menu Text', $instructions = '', $defaultValue = '', $required = 0)
-    {
-        $conditions = [
-            [
-                [
-                    'field' => 'field_has_anchor_menu',
-                    'operator' => '==',
-                    'value' => '1',
-                ]
-            ]
-        ];
-
-        return [
-            'key' => 'field_text_' . $this->generateUniquePrefix($prefix, $label),
-            'label' => $label,
-            'name' => strtolower(str_replace(' ', '_', $label)),
-            'type' => 'text',
-            'instructions' => $instructions,
-            'required' => $required,
-            'conditional_logic' => $conditions,
-            'default_value' => $defaultValue
-        ];
-    }
-
-    /**
+     * Generate a unique prefix
      * @param $prefix
      * @param $label
      * @return string
@@ -769,5 +674,4 @@ class BaseFields
     {
         return md5($prefix . strtolower(str_replace(' ', '_', $label)));
     }
-
 }
