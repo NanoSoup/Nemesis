@@ -121,12 +121,10 @@ class Block
      * @param $catName
      * @return $this
      */
-    public function setCat($catSlug, $catName): self
+    public function setCat($catSlug): self
     {
-        $this->catName = $catName;
         $this->catSlug = $catSlug;
 
-        add_filter('block_categories', [$this, 'newCategoryTask'], 10, 1);
         return $this;
     }
 
@@ -147,7 +145,8 @@ class Block
                 'keywords' => $this->blockKeywords,
                 'allowedPostTypes' => [
                     'post',
-                    'page'
+                    'page',
+                    'case-studies'
                 ],
                 'allowedTemplates' => [
 
@@ -157,22 +156,5 @@ class Block
                 ]
             ]);
         }
-    }
-
-    /**
-     * @param $categories
-     * @return array
-     */
-    public function newCategoryTask($categories): array
-    {
-        return array_merge(
-            $categories,
-            [
-                [
-                    'slug' => $this->catSlug,
-                    'title' => __($this->catName, 'erebus')
-                ],
-            ]
-        );
     }
 }
