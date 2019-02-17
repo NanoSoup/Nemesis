@@ -49,6 +49,11 @@ class Block
     public $catSlug = 'common';
 
     /**
+     * @var
+     */
+    public $postTypes = ['post', 'page'];
+
+    /**
      * Block constructor.
      */
     public function __construct()
@@ -143,18 +148,19 @@ class Block
                 'category' => $this->catSlug,
                 'icon' => $this->blockIcon,
                 'keywords' => $this->blockKeywords,
-                'allowedPostTypes' => [
-                    'post',
-                    'page',
-                    'case-studies'
-                ],
-                'allowedTemplates' => [
-
-                ],
-                'allowedPages' => [
-
-                ]
+                'post_types' => $this->postTypes
             ]);
         }
+    }
+
+    /**
+     * @param array $postTypes
+     * @return Block
+     */
+    public function setPostTypes(Array $postTypes) : self
+    {
+        $this->postTypes = $postTypes;
+
+        return $this;
     }
 }
