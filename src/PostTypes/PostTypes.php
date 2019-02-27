@@ -107,7 +107,7 @@ class PostTypes
             'show_in_rest' => $show_in_rest
         ];
 
-        register_taxonomy('event-category', $object_types, $args);
-        register_taxonomy_for_object_type('event-category', $name);
+        register_taxonomy($slug . '-category', $object_types, $args);
+        register_taxonomy_for_object_type($slug . '-category', $name);
     }
 }
