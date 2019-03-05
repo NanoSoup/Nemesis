@@ -54,7 +54,7 @@ class PostTypes
             'show_in_nav_menus' => $show_in_nav_menus,
             'show_in_rest' => $show_in_rest,
             'supports' => [
-                'title', 'editor', 'thumbnail', 'author'
+                'title', 'editor', 'thumbnail', 'author', 'page-attributes'
             ],
         ];
 
