@@ -132,6 +132,17 @@ class Block
 
         return $this;
     }
+    
+    /**
+     * @param array $supports
+     * @return Block
+     */
+    public function setSupports(Array $supports): self
+    {
+        $this->supports = $supports;
+
+        return $this;
+    }
 
     /**
      *
@@ -148,7 +159,8 @@ class Block
                 'category' => $this->catSlug,
                 'icon' => $this->blockIcon,
                 'keywords' => $this->blockKeywords,
-                'post_types' => $this->postTypes
+                'post_types' => $this->postTypes,
+                'supports' => $this->supports
             ]);
         }
     }
