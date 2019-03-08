@@ -52,6 +52,11 @@ class Block
      * @var
      */
     public $postTypes = ['post', 'page'];
+    
+    /**
+     * @var
+     */
+    public $supports = ['align' => false];
 
     /**
      * Block constructor.
@@ -139,7 +144,7 @@ class Block
      */
     public function setSupports(Array $supports): self
     {
-        $this->supports = $supports;
+        $this->supports = array_merge($this->supports, $supports);
 
         return $this;
     }
