@@ -49,6 +49,11 @@ class Block
     public $catSlug = 'common';
 
     /**
+     * @var string
+     */
+    public $mode = 'edit';
+
+    /**
      * @var
      */
     public $postTypes = ['post', 'page'];
@@ -150,6 +155,17 @@ class Block
     }
 
     /**
+     * @param $mode
+     * @return $this
+     */
+    public function setMode($mode): self
+    {
+        $this->mode = $mode;
+
+        return $this;
+    }
+
+    /**
      *
      */
     public function saveBlock(): void
@@ -165,6 +181,7 @@ class Block
                 'icon' => $this->blockIcon,
                 'keywords' => $this->blockKeywords,
                 'post_types' => $this->postTypes,
+                'mode' => $this->mode,
                 'supports' => $this->supports
             ]);
         }
