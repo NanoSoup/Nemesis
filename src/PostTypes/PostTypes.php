@@ -50,7 +50,7 @@ class PostTypes
             'public' => $public,
             'hierarchical' => $hierarchical,
             'has_archive' => $has_archive,
-            'rewrite' => ['slug' => $slug],
+            'rewrite' => ['slug' => $slug, 'with_front' => false],
             'show_in_nav_menus' => $show_in_nav_menus,
             'show_in_rest' => $show_in_rest,
             'supports' => [
