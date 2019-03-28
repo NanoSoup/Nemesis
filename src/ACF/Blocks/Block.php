@@ -57,6 +57,11 @@ class Block
      * @var
      */
     public $postTypes = ['post', 'page'];
+    
+    /**
+     * @var
+     */
+    public $supports = ['align' => false];
 
     /**
      * Block constructor.
@@ -137,6 +142,17 @@ class Block
 
         return $this;
     }
+    
+    /**
+     * @param array $supports
+     * @return Block
+     */
+    public function setSupports(Array $supports): self
+    {
+        $this->supports = array_merge($this->supports, $supports);
+
+        return $this;
+    }
 
     /**
      * @param $mode
@@ -166,6 +182,7 @@ class Block
                 'keywords' => $this->blockKeywords,
                 'post_types' => $this->postTypes,
                 'mode' => $this->mode,
+                'supports' => $this->supports
             ]);
         }
     }
