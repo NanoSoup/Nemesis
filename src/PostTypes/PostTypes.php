@@ -22,7 +22,8 @@ class PostTypes
             'hierarchical' => false,
             'has_archive' => true,
             'show_in_nav_menus' => true,
-            'show_in_rest' => true
+            'show_in_rest' => true,
+            'show_in_menu' => true,
         ];
 
         // Make nice variable names
