@@ -54,6 +54,7 @@ class PostTypes
             'rewrite' => ['slug' => $slug, 'with_front' => false],
             'show_in_nav_menus' => $show_in_nav_menus,
             'show_in_rest' => $show_in_rest,
+            'show_in_menu' => $show_in_menu,
             'supports' => [
                 'title', 'editor', 'thumbnail', 'author', 'page-attributes'
             ],
