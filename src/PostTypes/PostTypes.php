@@ -24,6 +24,7 @@ class PostTypes
             'show_in_nav_menus' => true,
             'show_in_rest' => true,
             'show_in_menu' => true,
+            'menu_icon' => 'dashicons-palmtree',
         ];
 
         // Make nice variable names
