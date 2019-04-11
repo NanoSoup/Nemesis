@@ -18,7 +18,8 @@ class Group extends BaseFields
     {
         $defaults = [
             'label' => '',
-            'prefix' => 'ss_acf'
+            'prefix' => 'ss_acf',
+            'conditions' => ''
         ];
 
         $settings = array_merge($defaults, $args['settings']);
@@ -30,7 +31,8 @@ class Group extends BaseFields
             'type' => 'group',
             'sub_fields' => $args['elements'],
             'layout' => 'block',
-            'collapsed' => 'true'
+            'collapsed' => 'true',
+            'conditions' => $settings['conditions']
         ];
     }
 }
