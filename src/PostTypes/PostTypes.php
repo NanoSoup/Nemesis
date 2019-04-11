@@ -49,6 +49,7 @@ class PostTypes
                 'enter_title_here' => 'Enter title here',
             ],
             'public' => $public,
+            'menu_icon' => $menu_icon,
             'hierarchical' => $hierarchical,
             'has_archive' => $has_archive,
             'rewrite' => ['slug' => $slug, 'with_front' => false],
@@ -56,7 +57,7 @@ class PostTypes
             'show_in_rest' => $show_in_rest,
             'show_in_menu' => $show_in_menu,
             'supports' => [
-                'title', 'editor', 'thumbnail', 'author', 'page-attributes'
+                'title', 'editor', 'thumbnail', 'author', 'page-attributes',
             ],
         ];
 
@@ -77,7 +78,7 @@ class PostTypes
             'public' => true,
             'hierarchical' => false,
             'show_ui' => true,
-            'show_in_rest' => true
+            'show_in_rest' => true,
         ];
 
         // Make nice variable names
@@ -100,13 +101,13 @@ class PostTypes
                 'separate_items_with_commas' => 'Separate ' . $singular . ' Categories with commas',
                 'add_or_remove_items' => 'Add or remove ' . $singular . ' Categories',
                 'choose_from_most_used' => 'Choose from the most used ' . $singular . ' Categories',
-                'menu_name' => $singular . ' Categories'
+                'menu_name' => $singular . ' Categories',
             ],
             'public' => $public,
             'hierarchical' => $hierarchical,
             'rewrite' => ['slug' => $slug . '/category'],
             'show_ui' => $show_ui,
-            'show_in_rest' => $show_in_rest
+            'show_in_rest' => $show_in_rest,
         ];
 
         register_taxonomy($slug . '-category', $object_types, $args);
