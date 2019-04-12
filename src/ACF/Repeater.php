@@ -22,6 +22,7 @@ class Repeater extends BaseFields
             'prefix' => 'ss_acf',
             'min' => '',
             'max' => '',
+            'conditions' => ''
         ];
 
         $settings = array_merge($defaults, $args['settings']);
@@ -37,6 +38,7 @@ class Repeater extends BaseFields
             'max' => $settings['max'],
             'layout' => 'block',
             'collapsed' => 'true',
+            'conditions' => $settings['conditions']
         ];
     }
 }
