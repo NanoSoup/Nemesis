@@ -29,7 +29,7 @@ class BaseFields
             'instructions' => $instructions,
             'required' => $required,
             'conditional_logic' => $conditions,
-            'default_value' => $defaultValue
+            'default_value' => $defaultValue,
         ];
     }
 
@@ -53,7 +53,7 @@ class BaseFields
             'instructions' => $instructions,
             'required' => $required,
             'conditional_logic' => $conditions,
-            'default_value' => $defaultValue
+            'default_value' => $defaultValue,
         ];
     }
 
@@ -107,7 +107,7 @@ class BaseFields
             'instructions' => $instructions,
             'required' => $required,
             'conditional_logic' => $conditions,
-            'default_value' => $defaultValue
+            'default_value' => $defaultValue,
         ];
     }
 
@@ -131,7 +131,7 @@ class BaseFields
             'instructions' => $instructions,
             'required' => $required,
             'conditional_logic' => $conditions,
-            'default_value' => $defaultValue
+            'default_value' => $defaultValue,
         ];
     }
 
@@ -155,7 +155,7 @@ class BaseFields
             'instructions' => $instructions,
             'required' => $required,
             'conditional_logic' => $conditions,
-            'default_value' => $defaultValue
+            'default_value' => $defaultValue,
         ];
     }
 
@@ -186,7 +186,7 @@ class BaseFields
             'min_width' => 0,
             'min_height' => 0,
             'max_width' => 0,
-            'max_height' => 0
+            'max_height' => 0,
         ];
     }
 
@@ -214,7 +214,7 @@ class BaseFields
             'tabs' => 'all',
             'toolbar' => 'full',
             'media_upload' => 1,
-            'delay' => 1
+            'delay' => 1,
         ];
     }
 
@@ -245,7 +245,7 @@ class BaseFields
             'library' => 'all',
             'min_size' => 0,
             'max_size' => 0,
-            'mime_types' => $mimeTypes
+            'mime_types' => $mimeTypes,
         ];
     }
 
@@ -307,7 +307,7 @@ class BaseFields
             'choices' => $choices,
             'multiple' => $multiple,
             'ui' => $multiple ? 1 : 0,
-            'ajax' => $multiple ? 1 : 0
+            'ajax' => $multiple ? 1 : 0,
         ];
     }
 
@@ -334,7 +334,7 @@ class BaseFields
             'conditional_logic' => $conditions,
             'default_value' => $defaultValue,
             'choices' => $choices,
-            'layout' => 0
+            'layout' => 0,
         ];
     }
 
@@ -355,13 +355,13 @@ class BaseFields
             'key' => 'field_radio_' . $this->generateUniquePrefix($prefix, $label),
             'label' => $label,
             'name' => $this->generateName($label),
-            'type' => 'checkbox',
+            'type' => 'radio',
             'instructions' => $instructions,
             'required' => $required,
             'conditional_logic' => $conditions,
             'default_value' => $defaultValue,
             'choices' => $choices,
-            'layout' => 0
+            'layout' => 0,
         ];
     }
 
@@ -388,7 +388,7 @@ class BaseFields
             'conditional_logic' => $conditions,
             'default_value' => $defaultValue,
             'message' => $message,
-            'ui' => 1
+            'ui' => 1,
         ];
     }
 
@@ -420,7 +420,7 @@ class BaseFields
             'multiple' => $multiple,
             'post_type' => $postType,
             'taxonomy' => $taxonomy,
-            'return_format' => $return
+            'return_format' => $return,
         ];
     }
 
@@ -450,7 +450,7 @@ class BaseFields
             'default_value' => $defaultValue,
             'multiple' => $multiple,
             'post_type' => $post_type,
-            'taxonomy' => $taxonomy
+            'taxonomy' => $taxonomy,
         ];
     }
 
@@ -483,7 +483,7 @@ class BaseFields
             'post_type' => $postType,
             'taxonomy' => $taxonomy,
             'return_format' => $return,
-            'add_term' => 0
+            'add_term' => 0,
         ];
     }
 
@@ -516,7 +516,7 @@ class BaseFields
             'field_type' => $fieldType,
             'taxonomy' => $taxonomy,
             'return_format' => $return,
-            'add_term' => 0
+            'add_term' => 0,
         ];
     }
 
@@ -542,7 +542,7 @@ class BaseFields
             'required' => $required,
             'conditional_logic' => $conditions,
             'default_value' => $defaultValue,
-            'zoom' => $zoom
+            'zoom' => $zoom,
         ];
     }
 
@@ -570,7 +570,7 @@ class BaseFields
             'conditional_logic' => $conditions,
             'default_value' => $defaultValue,
             'display_format' => $displayFormat,
-            'return_format' => $returnFormat
+            'return_format' => $returnFormat,
         ];
     }
 
@@ -598,7 +598,7 @@ class BaseFields
             'conditional_logic' => $conditions,
             'default_value' => $defaultValue,
             'display_format' => $displayFormat,
-            'return_format' => $returnFormat
+            'return_format' => $returnFormat,
         ];
     }
 
@@ -626,7 +626,7 @@ class BaseFields
             'conditional_logic' => $conditions,
             'default_value' => $defaultValue,
             'display_format' => $displayFormat,
-            'return_format' => $returnFormat
+            'return_format' => $returnFormat,
         ];
     }
 
@@ -649,7 +649,7 @@ class BaseFields
             'instructions' => $instructions,
             'required' => $required,
             'conditional_logic' => $conditions,
-            'default_value' => $defaultValue
+            'default_value' => $defaultValue,
         ];
     }
 
