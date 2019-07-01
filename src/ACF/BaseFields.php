@@ -393,6 +393,34 @@ class BaseFields
     }
 
     /**
+     * Button Group field
+     * @param $prefix
+     * @param string $label
+     * @param array $choices
+     * @param string $return
+     * @param int $conditions
+     * @param string $instructions
+     * @param string $defaultValue
+     * @param int $required
+     * @return array
+     */
+    public function buttonGroup($prefix, $label = 'Button Group', $choices = [], $return = 'array', $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
+    {
+        return [
+            'key' => 'field_button_group_' . $this->generateUniquePrefix($prefix, $label),
+            'label' => 'Button group',
+            'name' => $this->generateName($label),
+            'type' => 'button_group',
+            'instructions' => $instructions,
+            'required' => $required,
+            'conditional_logic' => $conditions,
+            'choices' => $choices,
+            'default_value' => $defaultValue,
+            'return_format' => $return,
+        ];
+    }
+
+    /**
      * Basic Post field
      * @param $prefix
      * @param string $label
@@ -521,6 +549,34 @@ class BaseFields
     }
 
     /**
+     * User field
+     * @param $prefix
+     * @param string $label
+     * @param array $roles
+     * @param int $multiple
+     * @param string $return
+     * @param int $conditions
+     * @param string $instructions
+     * @param int $required
+     * @return array
+     */
+    public function user($prefix, $label = 'User', $roles = [], $multiple = 0, $return = 'array', $conditions = 0, $instructions = '', $required = 0)
+    {
+        return [
+            'key' => 'field_user_' . $this->generateUniquePrefix($prefix, $label),
+            'label' => 'User',
+            'name' => $this->generateName($label),
+            'type' => 'user',
+            'instructions' => $instructions,
+            'required' => $required,
+            'conditional_logic' => $conditions,
+            'role' => $roles,
+            'multiple' => $multiple,
+            'return_format' => $return,
+        ];
+    }
+
+    /**
      * Google Map field
      * @param $prefix
      * @param string $label
@@ -627,6 +683,53 @@ class BaseFields
             'default_value' => $defaultValue,
             'display_format' => $displayFormat,
             'return_format' => $returnFormat,
+        ];
+    }
+
+    /**
+     * @param $prefix
+     * @param string $label
+     * @param int $conditions
+     * @param string $instructions
+     * @param string $defaultValue
+     * @param int $required
+     * @return array
+     */
+    public function colour($prefix, $label = 'Colour', $conditions = 0, $instructions = '', $defaultValue = '', $required = 0)
+    {
+        return [
+            'key' => 'field_colour_' . $this->generateUniquePrefix($prefix, $label),
+            'label' => $label,
+            'name' => $this->generateName($label),
+            'type' => 'color_picker',
+            'instructions' => $instructions,
+            'required' => $required,
+            'conditional_logic' => $conditions,
+            'default_value' => $defaultValue,
+        ];
+    }
+
+    /**
+     * Message field
+     * @param $prefix
+     * @param string $label
+     * @param string $message
+     * @param int $conditions
+     * @param string $instructions
+     * @return array
+     */
+    public function message($prefix, $label = 'Message', $message = '', $conditions = 0, $instructions = '')
+    {
+        return [
+            'key' => 'field_message_' . $this->generateUniquePrefix($prefix, $label),
+            'label' => $label,
+            'name' => $this->generateName($label),
+            'type' => 'message',
+            'instructions' => $instructions,
+            'conditional_logic' => $conditions,
+            'message' => $message,
+            'new_lines' => 'wpautop',
+            'esc_html' => 0
         ];
     }
 
