@@ -308,6 +308,7 @@ class BaseFields
             'multiple' => $multiple,
             'ui' => $multiple ? 1 : 0,
             'ajax' => $multiple ? 1 : 0,
+            'allow_null' => !$required,
         ];
     }
 
@@ -449,6 +450,7 @@ class BaseFields
             'post_type' => $postType,
             'taxonomy' => $taxonomy,
             'return_format' => $return,
+            'allow_null' => !$required,
         ];
     }
 
@@ -479,6 +481,7 @@ class BaseFields
             'multiple' => $multiple,
             'post_type' => $post_type,
             'taxonomy' => $taxonomy,
+            'allow_null' => !$required,
         ];
     }
 
@@ -512,6 +515,7 @@ class BaseFields
             'taxonomy' => $taxonomy,
             'return_format' => $return,
             'add_term' => 0,
+            'allow_null' => !$required,
         ];
     }
 
@@ -545,6 +549,7 @@ class BaseFields
             'taxonomy' => $taxonomy,
             'return_format' => $return,
             'add_term' => 0,
+            'allow_null' => !$required,
         ];
     }
 
@@ -573,6 +578,7 @@ class BaseFields
             'role' => $roles,
             'multiple' => $multiple,
             'return_format' => $return,
+            'allow_null' => !$required,
         ];
     }
 
