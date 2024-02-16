@@ -166,17 +166,18 @@ class Block
      * full_height: This property enables the full height button on the toolbar of a block and adds the $block[‘full_height’] property inside the render template/callback. $block[‘full_height’] will only be true if the full height button is enabled on the block in the editor. Defaults to false.
      * mode: This property allows the user to toggle between edit and preview modes via a button. Defaults to true.
      * multiple: This property allows the block to be added multiple times. Defaults to true.
+     * example: An array of structured data used to construct a preview shown within the block-inserter. All values entered into the ‘data’ attribute array will become available within the block render template/callback via $block['data'] or get_field().
      * 
      * @var array
      */
     public $supports = [
         'align' => true, 
-        'align_text' => false, 
-        'align_content' => false,
-        'full_height' => false,
-        'html' => false,
+        'align_text' => true, 
+        'align_content' => true,
+        'full_height' => true,
         'mode' => true,
         'multiple' => true,
+        'example' => true,
         'jsx' => true
     ];
 
@@ -265,6 +266,7 @@ class Block
     public function setBlockTitle($title): self
     {
         $this->title = $title;
+
         return $this->setTitle($title);
     }
 
@@ -591,7 +593,7 @@ class Block
      */
     public function setSupports($supports): self
     {
-        $this->supports = $supports;
+        $this->supports = array_merge($this->supports, $supports);
 
         return $this;
     }
